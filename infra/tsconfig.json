@@ -1,0 +1,24 @@
+{
+  // add stricter rules to the tsconfig
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "strict": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitAny": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noFallthroughCasesInSwitch": true,
+    "noImplicitReturns": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+    "types": ["node"],
+    "moduleResolution": "bundler",
+    "baseUrl": "."
+  },
+  "include": ["src/**/*.ts", "bin/**/*.ts"]
+}
