@@ -4,7 +4,7 @@ export function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className="py-16 bg-gradient-to-br from-stone-100/50 to-stone-50 border-t border-stone-200">
+    <footer className="py-16 bg-neutral-100">
       <div className="w-full max-w-6xl mx-auto px-8">
         
         {/* Main Footer Content */}
@@ -14,7 +14,7 @@ export function Footer() {
           <div className="space-y-4">
             <div>
               <h3 className="text-xl font-light text-gray-900 mb-6">Guillaume Cauchet</h3>
-              <p className="text-stone-600 text-sm leading-relaxed">
+              <p className="text-gray-700 text-sm leading-relaxed">
                 Fullstack Software Engineer specializing in scalable solutions and impactful digital experiences.
               </p>
             </div>

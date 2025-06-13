@@ -4,69 +4,94 @@
 
 @layer base {
   :root {
-    --background: 40 12% 98%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
-    --primary: 120 8% 45%;
+    --background: 40 30% 98%;
+    --foreground: 240 15% 15%;
+    --card: 250 100% 99%;
+    --card-foreground: 240 15% 15%;
+    --popover: 250 100% 99%;
+    --popover-foreground: 240 15% 15%;
+    --primary: 250 25% 65%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 40 10% 95%;
-    --secondary-foreground: 240 5.9% 10%;
-    --muted: 40 10% 95%;
-    --muted-foreground: 120 12% 68%;
-    --accent: 210 22% 82%;
-    --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 65% 55%;
+    --secondary: 140 40% 95%;
+    --secondary-foreground: 240 15% 15%;
+    --muted: 40 25% 96%;
+    --muted-foreground: 240 10% 45%;
+    --accent: 200 45% 90%;
+    --accent-foreground: 240 15% 15%;
+    --destructive: 350 60% 75%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 8% 91%;
-    --input: 40 8% 91%;
-    --ring: 120 12% 68%;
+    --border: 40 20% 93%;
+    --input: 40 20% 93%;
+    --ring: 250 30% 75%;
     --radius: 0.5rem;
 
-    /* Enhanced Color Palette for Sophisticated Design */
-    /* Sage - Primary brand color for sophistication */
-    --sage-50: 120 25% 97%;
-    --sage-100: 120 22% 94%;
-    --sage-200: 120 18% 89%;
-    --sage-300: 120 15% 82%;
-    --sage-400: 120 12% 68%;
-    --sage-500: 120 10% 52%;
-    --sage-600: 120 8% 45%;
-    --sage-700: 120 6% 38%;
+    /* Natural Pastel Color Palette */
+    /* Sage Green - Natural green */
+    --sage-natural-50: 120 30% 96%;
+    --sage-natural-100: 120 25% 92%;
+    --sage-natural-200: 120 20% 88%;
+    --sage-natural-300: 120 18% 82%;
+    --sage-natural-400: 120 15% 75%;
+    --sage-natural-500: 120 12% 68%;
+    --sage-natural-600: 120 10% 60%;
 
-    /* Stone - Neutral foundation for elegance */
-    --stone-50: 40 12% 98%;
-    --stone-100: 40 10% 95%;
-    --stone-200: 40 8% 91%;
-    --stone-300: 40 6% 84%;
-    --stone-400: 40 5% 72%;
-    --stone-500: 40 4% 58%;
-    --stone-600: 40 3% 44%;
+    /* Warm Sand - Natural beige */
+    --sand-50: 45 40% 96%;
+    --sand-100: 45 35% 92%;
+    --sand-200: 45 30% 88%;
+    --sand-300: 45 25% 82%;
+    --sand-400: 45 20% 75%;
+    --sand-500: 45 15% 68%;
+    --sand-600: 45 12% 60%;
 
-    /* Blue - Accent color for professional highlights */
-    --blue-50: 210 45% 98%;
-    --blue-100: 210 35% 95%;
-    --blue-200: 210 28% 90%;
-    --blue-300: 210 22% 82%;
-    --blue-400: 210 18% 70%;
-    --blue-500: 210 15% 58%;
-    --blue-600: 210 12% 46%;
+    /* Soft Clay - Natural terracotta */
+    --clay-50: 20 40% 96%;
+    --clay-100: 20 35% 92%;
+    --clay-200: 20 30% 88%;
+    --clay-300: 20 25% 82%;
+    --clay-400: 20 20% 75%;
+    --clay-500: 20 15% 68%;
 
-    /* Warm accents for subtle visual interest */
-    --amber-50: 45 100% 97%;
-    --amber-100: 45 85% 92%;
-    --amber-200: 45 75% 85%;
-    --amber-300: 45 65% 75%;
+    /* Natural Moss - Deep green */
+    --moss-50: 100 35% 96%;
+    --moss-100: 100 30% 92%;
+    --moss-200: 100 25% 88%;
+    --moss-300: 100 20% 82%;
+    --moss-400: 100 18% 75%;
+    --moss-500: 100 15% 68%;
 
-    /* Success/error states with muted tones */
-    --success-50: 142 76% 96%;
-    --success-100: 142 60% 91%;
-    --success-500: 142 45% 45%;
-    --error-50: 0 85% 97%;
-    --error-100: 0 75% 94%;
-    --error-500: 0 65% 55%;
+    /* Warm Cream - Natural off-white */
+    --cream-natural-50: 50 25% 98%;
+    --cream-natural-100: 50 20% 95%;
+    --cream-natural-200: 50 15% 92%;
+    --cream-natural-300: 50 12% 88%;
+    --cream-natural-400: 50 10% 82%;
+    --cream-natural-500: 50 8% 75%;
+
+    /* Legacy color mappings - now using natural colors */
+    --sage-50: 120 30% 96%;
+    --sage-100: 120 25% 92%;
+    --sage-200: 120 20% 88%;
+    --sage-300: 120 18% 82%;
+    --sage-400: 120 15% 75%;
+    --sage-500: 120 12% 68%;
+    --sage-600: 120 10% 60%;
+
+    --stone-50: 45 40% 96%;
+    --stone-100: 45 35% 92%;
+    --stone-200: 45 30% 88%;
+    --stone-300: 45 25% 82%;
+    --stone-400: 45 20% 75%;
+    --stone-500: 45 15% 68%;
+    --stone-600: 45 12% 60%;
+
+    --blue-50: 100 35% 96%;
+    --blue-100: 100 30% 92%;
+    --blue-200: 100 25% 88%;
+    --blue-300: 100 20% 82%;
+    --blue-400: 100 18% 75%;
+    --blue-500: 100 15% 68%;
+    --blue-600: 100 12% 60%;
   }
 
   .dark {

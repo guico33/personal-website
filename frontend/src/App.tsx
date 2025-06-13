@@ -1,12 +1,14 @@
-import { Hero } from './sections/Hero'
-import { About } from './sections/About'
-import { Projects } from './sections/Projects'
-import { Contact } from './sections/Contact'
-import { Footer } from './sections/Footer'
+import { Hero } from './sections/Hero';
+import { About } from './sections/About';
+import { Projects } from './sections/Projects';
+import { Contact } from './sections/Contact';
+import { Footer } from './sections/Footer';
+import { ScrollProgress } from './components/magicui/scroll-progress';
 
 function App() {
   return (
-    <div className="min-h-screen">
+    <div>
+      <ScrollProgress />
       <main>
         <Hero />
         <About />
@@ -15,7 +17,7 @@ function App() {
         <Footer />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

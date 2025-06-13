@@ -1,13 +1,13 @@
 import { Button } from '../components/ui/button';
 import { BlurFade } from '../components/magicui/blur-fade';
-import { personalInfo } from '../data/portfolio';
+import { heroSkills, personalInfo } from '../data/portfolio';
 import profilePic from '../assets/profile-pic.jpg';
 
 export function Hero() {
   return (
-    <section className="min-h-screen bg-gradient-to-br from-stone-50 to-white flex items-center">
+    <section className="min-h-screen lg:pt-8 pt-16 bg-gradient-to-br from-white to-amber-50 flex items-center">
       <div className="w-full max-w-6xl mx-auto px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16 lg:mb-0">
           {/* Content */}
           <div className="space-y-8">
             {/* Location */}
@@ -41,7 +41,7 @@ export function Hero() {
 
               {/* Tech stack */}
               <div className="flex flex-wrap gap-3">
-                {['TypeScript', 'React/Next.js', 'Node.js', 'AWS', 'GraphQL'].map((tech) => (
+                {heroSkills.map((tech) => (
                   <span
                     key={tech}
                     className="px-3 py-1 bg-stone-100 text-stone-700 rounded-full text-sm border border-stone-200"
@@ -57,7 +57,7 @@ export function Hero() {
               <Button
                 size="lg"
                 asChild
-                className="bg-gray-900 hover:bg-gray-800 text-white cursor-pointer transition-all duration-200"
+                className="bg-gray-900 hover:bg-gray-700 text-white cursor-pointer transition-all duration-200"
               >
                 <a href="#projects">View Work</a>
               </Button>
@@ -73,7 +73,7 @@ export function Hero() {
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-sage-300 text-sage-700 hover:bg-sage-50 hover:border-sage-400 cursor-pointer transition-all duration-200"
+                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200"
               >
                 <a
                   href="/resume_Guillaume_Cauchet_SWE.pdf"
@@ -129,9 +129,9 @@ export function Hero() {
           </div>
         </div>
 
-        {/* Simple bottom navigation */}
-        <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-          <nav className="flex gap-8 text-sm text-stone-500">
+        {/* Simple bottom navigation - responsive positioning */}
+        <div className="lg:absolute lg:bottom-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 mt-8 mb-8 lg:mt-0 lg:mb-0 flex justify-center">
+          <nav className="flex gap-8 text-base text-stone-500">
             <a href="#about" className="hover:text-gray-900 transition-colors cursor-pointer">
               About
             </a>

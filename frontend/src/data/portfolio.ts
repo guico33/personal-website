@@ -1,3 +1,11 @@
+// Import logos
+import inkstreamLogo from '../assets/inkstream-logo.png';
+import sgiLogo from '../assets/sgi-logo.png';
+import renewLogo from '../assets/renew-logo.png';
+import stashawayLogo from '../assets/stashaway-logo.png';
+
+export const heroSkills = ['TypeScript', 'React/Next.js', 'Node.js', 'AWS'];
+
 export const personalInfo = {
   name: 'Guillaume Cauchet',
   title: 'Fullstack Software Engineer',
@@ -67,7 +75,7 @@ export const experience = [
         name: 'Renew UltraLink',
         period: 'Nov 2022 – Dec 2022',
         description:
-          'Led frontend development for a web application used in operating theatres to distinguish healthy tissues from video feeds.',
+          'Led frontend development for a web application used in operating theatres to distinguish cancerous tissues from video feeds.',
         achievements: [
           'Transformed the project from a prototype into a production-ready solution by integrating live streaming via websockets and interactive data visualizations using SVG',
           'Delivered a project using a modern stack (Typescript, React, and Next.js) tailored for high-stakes clinical environments, and implemented a comprehensive suite of unit tests to ensure robust, maintainable code',
@@ -97,14 +105,15 @@ export const education = {
 
 export const projects = [
   {
-    name: 'Inkstream Cloud',
-    description: 'Currently building app.inkstream.cloud - a cloud-based application platform',
+    name: 'Inkstream',
+    description:
+      'Currently building app.inkstream.cloud - a cloud-based Ai-powered document processing platform',
     status: 'In Development',
     technologies: ['TypeScript', 'React', 'Next.js', 'AWS'],
     link: 'https://app.inkstream.cloud',
   },
   {
-    name: 'SGInnovate Platform',
+    name: 'SGInnovate',
     description:
       "Event management and job board platform rebuilt from the ground up for Singapore's innovation hub",
     technologies: ['TypeScript', 'React', 'Next.js', 'NestJS'],
@@ -126,7 +135,7 @@ export const projects = [
     ],
   },
   {
-    name: 'StashAway Platform',
+    name: 'StashAway',
     description: 'Large-scale React web application for leading robo-advisory platform in Asia',
     technologies: ['React', 'Node.js', 'Express', 'GraphQL', 'REST'],
     achievements: [
@@ -134,5 +143,34 @@ export const projects = [
       'High performance & scalability',
       '5 Asian countries deployment',
     ],
+  },
+];
+
+// Project display data with logos and metadata
+export const projectsData = [
+  {
+    name: 'Inkstream',
+    logo: inkstreamLogo,
+    status: 'In Development' as const,
+    link: 'https://app.inkstream.cloud',
+    color: 'primary' as const,
+  },
+  {
+    name: 'SGInnovate',
+    logo: sgiLogo,
+    status: 'Completed' as const,
+    color: 'accent' as const,
+  },
+  {
+    name: 'Renew UltraLink',
+    logo: renewLogo,
+    status: 'Completed' as const,
+    color: 'secondary' as const,
+  },
+  {
+    name: 'StashAway',
+    logo: stashawayLogo,
+    status: 'Completed' as const,
+    color: 'muted' as const,
   },
 ];
