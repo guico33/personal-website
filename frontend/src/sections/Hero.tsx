@@ -1,4 +1,5 @@
 import { Button } from '../components/ui/button'
+import { BlurFade } from '../components/magicui/blur-fade'
 import { personalInfo } from '../data/portfolio'
 import profilePic from '../assets/profile-pic.jpg'
 
@@ -17,12 +18,14 @@ export function Hero() {
             </div>
             
             {/* Name */}
-            <div>
-              <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
-                {personalInfo.name}
-              </h1>
-              <div className="w-16 h-px bg-sage-300 mt-4"></div>
-            </div>
+            <BlurFade delay={0.25} inView>
+              <div>
+                <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
+                  {personalInfo.name}
+                </h1>
+                <div className="w-16 h-px bg-sage-300 mt-4"></div>
+              </div>
+            </BlurFade>
             
             {/* Title & Experience */}
             <div>

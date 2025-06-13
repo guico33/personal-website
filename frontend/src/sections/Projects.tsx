@@ -1,11 +1,11 @@
 import { Card, CardContent } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
 import { Button } from '../components/ui/button'
+import { BlurFade } from '../components/magicui/blur-fade'
 import { projects } from '../data/portfolio'
 
 // Import logos
 import inkstreamLogo from '../assets/inkstream-logo.png'
-import paloItLogo from '../assets/palo-it-logo.svg'
 import sgiLogo from '../assets/sgi-logo.png'
 import renewLogo from '../assets/renew-logo.png'
 import stashawayLogo from '../assets/stashaway-logo.png'
@@ -45,15 +45,17 @@ export function Projects() {
       <div className="w-full max-w-6xl mx-auto px-8">
         
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-            Featured Projects
-          </h2>
-          <div className="w-16 h-px bg-sage-300 mt-4"></div>
-          <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl">
-            A selection of impactful projects showcasing technical expertise and business outcomes across different domains.
-          </p>
-        </div>
+        <BlurFade delay={0.25} inView>
+          <div className="mb-16">
+            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+              Featured Projects
+            </h2>
+            <div className="w-16 h-px bg-sage-300 mt-4"></div>
+            <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl">
+              A selection of impactful projects showcasing technical expertise and business outcomes across different domains.
+            </p>
+          </div>
+        </BlurFade>
 
         {/* Projects Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">

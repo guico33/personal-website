@@ -4,6 +4,7 @@ import { zodResolver } from '@hookform/resolvers/zod'
 import * as z from 'zod'
 import { Card, CardContent } from '../components/ui/card'
 import { Button } from '../components/ui/button'
+import { BlurFade } from '../components/magicui/blur-fade'
 import { personalInfo } from '../data/portfolio'
 
 // Form validation schema
@@ -46,15 +47,17 @@ export function Contact() {
       <div className="w-full max-w-6xl mx-auto px-8">
         
         {/* Section Header */}
-        <div className="mb-16 text-center">
-          <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-            Get In Touch
-          </h2>
-          <div className="w-16 h-px bg-sage-300 mt-4 mx-auto"></div>
-          <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl mx-auto">
-            Ready to bring your ideas to life? Let's discuss how we can work together to create something exceptional.
-          </p>
-        </div>
+        <BlurFade delay={0.25} inView>
+          <div className="mb-16 text-center">
+            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+              Get In Touch
+            </h2>
+            <div className="w-16 h-px bg-sage-300 mt-4 mx-auto"></div>
+            <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl mx-auto">
+              Ready to bring your ideas to life? Let's discuss how we can work together to create something exceptional.
+            </p>
+          </div>
+        </BlurFade>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-end">
           

@@ -1,6 +1,7 @@
 import { Card, CardContent } from '../components/ui/card'
 import { Badge } from '../components/ui/badge'
-import { experience, education, personalInfo } from '../data/portfolio'
+import { BlurFade } from '../components/magicui/blur-fade'
+import { experience, education } from '../data/portfolio'
 
 export function About() {
   // Enhanced bio with slight adjustments for portfolio context
@@ -11,12 +12,14 @@ export function About() {
       <div className="w-full max-w-6xl mx-auto px-8">
         
         {/* Section Header */}
-        <div className="mb-16">
-          <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
-            Professional Journey
-          </h2>
-          <div className="w-16 h-px bg-sage-300 mt-4"></div>
-        </div>
+        <BlurFade delay={0.25} inView>
+          <div className="mb-16">
+            <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
+              Professional Journey
+            </h2>
+            <div className="w-16 h-px bg-sage-300 mt-4"></div>
+          </div>
+        </BlurFade>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
           
