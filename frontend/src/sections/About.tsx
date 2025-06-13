@@ -17,7 +17,7 @@ export function About() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
               Professional Journey
             </h2>
-            <div className="w-16 h-px bg-sage-300 mt-4"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-sage-400 to-sage-300 mt-4"></div>
           </div>
         </BlurFade>
 
@@ -37,7 +37,7 @@ export function About() {
             {/* Education */}
             <div>
               <h3 className="text-xl font-light text-gray-900 mb-6">Education</h3>
-              <Card className="border-stone-200 bg-white/30">
+              <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-stone-50/30">
                 <CardContent className="p-6">
                   <div className="space-y-2">
                     <h4 className="font-medium text-gray-900">{education.degree}</h4>
@@ -56,17 +56,17 @@ export function About() {
             
             <div className="relative">
               {/* Timeline line */}
-              <div className="absolute left-6 top-0 bottom-0 w-px bg-stone-200"></div>
+              <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-sage-300 via-stone-200 to-stone-100"></div>
               
               <div className="space-y-12">
                 {experience.map((exp, index) => (
                   <div key={index} className="relative">
                     {/* Timeline dot */}
-                    <div className="absolute left-4 w-4 h-4 bg-sage-300 rounded-full border-4 border-white shadow-sm"></div>
+                    <div className="absolute left-4 w-4 h-4 bg-gradient-to-br from-sage-400 to-sage-500 rounded-full border-4 border-white shadow-sm"></div>
                     
                     {/* Content */}
                     <div className="ml-12">
-                      <Card className="border-stone-200 bg-white/40 hover:bg-white/60 transition-colors">
+                      <Card className="border-stone-200 bg-gradient-to-br from-white/50 to-stone-50/30 hover:from-white/70 hover:to-stone-50/50 transition-all duration-300">
                         <CardContent className="p-6">
                           <div className="space-y-6">
                             
@@ -90,7 +90,7 @@ export function About() {
                             {exp.projects && (
                               <div className="space-y-6">
                                 {exp.projects.map((project, pIndex) => (
-                                  <div key={pIndex} className="bg-stone-100/60 rounded-lg p-5 border-l-4 border-sage-200">
+                                  <div key={pIndex} className="bg-gradient-to-r from-stone-50/80 to-sage-50/40 rounded-lg p-5 border-l-4 border-sage-300">
                                     <div className="space-y-3">
                                       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                                         <h5 className="font-medium text-gray-900">{project.name}</h5>

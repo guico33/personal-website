@@ -114,7 +114,7 @@ export function Footer() {
         <div className="mt-8 pt-6 border-t border-stone-100">
           <div className="text-center">
             <p className="text-xs text-stone-400 font-light">
-              Crafted with React, TypeScript, and Tailwind CSS
+              Built with React, TypeScript, and Tailwind CSS
             </p>
           </div>
         </div>

@@ -1,8 +1,10 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:is(.dark *));
+
 @layer base {
   :root {
-    --background: 40 10% 98%;
+    --background: 40 12% 98%;
     --foreground: 240 10% 3.9%;
     --card: 0 0% 100%;
     --card-foreground: 240 10% 3.9%;
@@ -10,37 +12,61 @@
     --popover-foreground: 240 10% 3.9%;
     --primary: 120 8% 45%;
     --primary-foreground: 0 0% 98%;
-    --secondary: 40 8% 95%;
+    --secondary: 40 10% 95%;
     --secondary-foreground: 240 5.9% 10%;
-    --muted: 40 8% 95%;
-    --muted-foreground: 120 10% 60%;
-    --accent: 210 15% 75%;
+    --muted: 40 10% 95%;
+    --muted-foreground: 120 12% 68%;
+    --accent: 210 22% 82%;
     --accent-foreground: 240 5.9% 10%;
-    --destructive: 0 84.2% 60.2%;
+    --destructive: 0 65% 55%;
     --destructive-foreground: 0 0% 98%;
-    --border: 40 6% 90%;
-    --input: 40 6% 90%;
-    --ring: 120 10% 60%;
+    --border: 40 8% 91%;
+    --input: 40 8% 91%;
+    --ring: 120 12% 68%;
     --radius: 0.5rem;
-    
-    /* Muted/Pastel Colors for sophisticated design */
+
+    /* Enhanced Color Palette for Sophisticated Design */
+    /* Sage - Primary brand color for sophistication */
     --sage-50: 120 25% 97%;
-    --sage-100: 120 20% 93%;
-    --sage-200: 120 15% 87%;
-    --sage-300: 120 12% 75%;
-    --sage-400: 120 10% 60%;
-    --sage-500: 120 8% 45%;
-    
-    --stone-50: 40 10% 98%;
-    --stone-100: 40 8% 95%;
-    --stone-200: 40 6% 90%;
-    --stone-300: 40 5% 80%;
-    
-    --blue-50: 210 40% 98%;
-    --blue-100: 210 25% 94%;
-    --blue-200: 210 20% 88%;
-    --blue-300: 210 15% 75%;
-    --blue-400: 210 12% 60%;
+    --sage-100: 120 22% 94%;
+    --sage-200: 120 18% 89%;
+    --sage-300: 120 15% 82%;
+    --sage-400: 120 12% 68%;
+    --sage-500: 120 10% 52%;
+    --sage-600: 120 8% 45%;
+    --sage-700: 120 6% 38%;
+
+    /* Stone - Neutral foundation for elegance */
+    --stone-50: 40 12% 98%;
+    --stone-100: 40 10% 95%;
+    --stone-200: 40 8% 91%;
+    --stone-300: 40 6% 84%;
+    --stone-400: 40 5% 72%;
+    --stone-500: 40 4% 58%;
+    --stone-600: 40 3% 44%;
+
+    /* Blue - Accent color for professional highlights */
+    --blue-50: 210 45% 98%;
+    --blue-100: 210 35% 95%;
+    --blue-200: 210 28% 90%;
+    --blue-300: 210 22% 82%;
+    --blue-400: 210 18% 70%;
+    --blue-500: 210 15% 58%;
+    --blue-600: 210 12% 46%;
+
+    /* Warm accents for subtle visual interest */
+    --amber-50: 45 100% 97%;
+    --amber-100: 45 85% 92%;
+    --amber-200: 45 75% 85%;
+    --amber-300: 45 65% 75%;
+
+    /* Success/error states with muted tones */
+    --success-50: 142 76% 96%;
+    --success-100: 142 60% 91%;
+    --success-500: 142 45% 45%;
+    --error-50: 0 85% 97%;
+    --error-100: 0 75% 94%;
+    --error-500: 0 65% 55%;
   }
 
   .dark {
@@ -70,6 +96,11 @@
   * {
     border-color: hsl(var(--border));
   }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
   body {
     background-color: hsl(var(--background));
     color: hsl(var(--foreground));
@@ -82,3 +113,28 @@
     -moz-osx-font-smoothing: grayscale;
   }
 }
+
+@theme inline {
+  --animate-shimmer-slide: shimmer-slide var(--speed) ease-in-out infinite alternate;
+  --animate-spin-around: spin-around calc(var(--speed) * 2) infinite linear;
+  @keyframes shimmer-slide {
+  to {
+    transform: translate(calc(100cqw - 100%), 0);
+    }
+  }
+  @keyframes spin-around {
+  0% {
+    transform: translateZ(0) rotate(0);
+    }
+  15%, 35% {
+    transform: translateZ(0) rotate(90deg);
+    }
+  65%, 85% {
+    transform: translateZ(0) rotate(270deg);
+    }
+  100% {
+    transform: translateZ(0) rotate(360deg);
+    }
+  }
+}
+

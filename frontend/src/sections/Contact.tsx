@@ -52,7 +52,7 @@ export function Contact() {
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
               Get In Touch
             </h2>
-            <div className="w-16 h-px bg-sage-300 mt-4 mx-auto"></div>
+            <div className="w-16 h-px bg-gradient-to-r from-sage-400 to-sage-300 mt-4 mx-auto"></div>
             <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl mx-auto">
               Ready to bring your ideas to life? Let's discuss how we can work together to create something exceptional.
             </p>
@@ -164,7 +164,7 @@ export function Contact() {
             </div>
 
             {/* Response Time Note - positioned at bottom */}
-            <Card className="border-stone-200 bg-white/30 mt-8">
+            <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30 mt-8">
               <CardContent className="p-6">
                 <div className="space-y-2">
                   <h4 className="font-medium text-gray-900">Response Time</h4>
@@ -179,7 +179,7 @@ export function Contact() {
           {/* Right Column - Contact Form */}
           <div>
             {!isSubmitted ? (
-              <Card className="border-stone-200 bg-white/40">
+              <Card className="border-stone-200 bg-gradient-to-br from-white/50 to-sage-50/20">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-light text-gray-900 mb-6">Send a Message</h3>
                   
@@ -193,7 +193,7 @@ export function Contact() {
                         {...register('name')}
                         type="text"
                         id="name"
-                        className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-300 transition-all"
                         placeholder="Your full name"
                       />
                       {errors.name && (
@@ -210,7 +210,7 @@ export function Contact() {
                         {...register('email')}
                         type="email"
                         id="email"
-                        className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all"
+                        className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-300 transition-all"
                         placeholder="your.email@example.com"
                       />
                       {errors.email && (
