@@ -36,7 +36,7 @@ export function Projects() {
             return (
               <Card
                 key={index}
-                className="group border-stone-200 bg-white hover:border-stone-300 transition-all duration-300 hover:shadow-lg"
+                className="group border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30 hover:from-white/60 hover:to-blue-50/40 transition-all duration-300 hover:shadow-lg"
               >
                 <CardContent className="p-8">
                   <div className="space-y-6">

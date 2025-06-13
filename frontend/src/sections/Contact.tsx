@@ -183,7 +183,7 @@ export function Contact() {
           {/* Right Column - Contact Form */}
           <div>
             {!isSubmitted ? (
-              <Card className="border-stone-200 bg-gradient-to-br from-white/50 to-sage-50/20">
+              <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30">
                 <CardContent className="p-8">
                   <h3 className="text-xl font-light text-gray-900 mb-6">Send a Message</h3>
 
@@ -261,7 +261,7 @@ export function Contact() {
               </Card>
             ) : (
               // Thank You Message
-              <Card className="border-sage-200 bg-sage-50/50">
+              <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30">
                 <CardContent className="p-8 text-center">
                   <div className="space-y-4">
                     <div className="w-12 h-12 bg-sage-100 rounded-full flex items-center justify-center mx-auto">
