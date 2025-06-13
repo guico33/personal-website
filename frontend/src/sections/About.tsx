@@ -25,15 +25,15 @@ export function About() {
             
             {/* Bio */}
             <div>
-              <h3 className="text-xl font-light text-gray-900 mb-4">Overview</h3>
-              <div className="text-gray-700 leading-relaxed font-light">
+              <h3 className="text-xl font-light text-gray-900 mb-6">Overview</h3>
+              <div className="text-lg text-gray-700 leading-relaxed font-light">
                 {portfolioBio}
               </div>
             </div>
 
             {/* Education */}
             <div>
-              <h3 className="text-xl font-light text-gray-900 mb-4">Education</h3>
+              <h3 className="text-xl font-light text-gray-900 mb-6">Education</h3>
               <Card className="border-stone-200 bg-white/30">
                 <CardContent className="p-6">
                   <div className="space-y-2">
@@ -49,7 +49,7 @@ export function About() {
 
           {/* Right Column - Experience Timeline */}
           <div className="lg:col-span-2">
-            <h3 className="text-xl font-light text-gray-900 mb-8">Experience</h3>
+            <h3 className="text-xl font-light text-gray-900 mb-6">Experience</h3>
             
             <div className="relative">
               {/* Timeline line */}

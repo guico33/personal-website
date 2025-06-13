@@ -51,115 +51,117 @@ export function Contact() {
             Get In Touch
           </h2>
           <div className="w-16 h-px bg-sage-300 mt-4 mx-auto"></div>
-          <p className="text-lg text-gray-600 font-light mt-6 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl mx-auto">
             Ready to bring your ideas to life? Let's discuss how we can work together to create something exceptional.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:items-end">
           
           {/* Left Column - Contact Information */}
-          <div className="space-y-8">
+          <div className="flex flex-col h-full">
             
             {/* Contact Details */}
-            <div>
-              <h3 className="text-xl font-light text-gray-900 mb-6">Contact Information</h3>
-              
-              <div className="space-y-6">
-                {/* Email */}
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+            <div className="flex-1 space-y-8">
+              <div>
+                <h3 className="text-xl font-light text-gray-900 mb-6">Contact Information</h3>
+                
+                <div className="space-y-6">
+                  {/* Email */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Email</div>
+                      <a 
+                        href={`mailto:${personalInfo.email}`}
+                        className="text-gray-700 hover:text-sage-600 transition-colors"
+                      >
+                        {personalInfo.email}
+                      </a>
+                    </div>
                   </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Email</div>
-                    <a 
-                      href={`mailto:${personalInfo.email}`}
-                      className="text-gray-700 hover:text-sage-600 transition-colors"
-                    >
-                      {personalInfo.email}
-                    </a>
+
+                  {/* Phone (France) */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Phone (France)</div>
+                      <a 
+                        href={`tel:${personalInfo.phone}`}
+                        className="text-gray-700 hover:text-sage-600 transition-colors"
+                      >
+                        {personalInfo.phone}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* WhatsApp/Telegram */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">WhatsApp / Telegram</div>
+                      <a 
+                        href={`https://wa.me/${personalInfo.whatsapp.replace(/[^0-9]/g, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-gray-700 hover:text-sage-600 transition-colors"
+                      >
+                        {personalInfo.whatsapp}
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Location */}
+                  <div className="flex items-start gap-4">
+                    <div className="w-6 h-6 flex items-center justify-center">
+                      <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
+                    </div>
+                    <div>
+                      <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Location</div>
+                      <div className="text-gray-700">France</div>
+                    </div>
                   </div>
                 </div>
+              </div>
 
-                {/* Phone (France) */}
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Phone (France)</div>
-                    <a 
-                      href={`tel:${personalInfo.phone}`}
-                      className="text-gray-700 hover:text-sage-600 transition-colors"
-                    >
-                      {personalInfo.phone}
-                    </a>
-                  </div>
-                </div>
-
-                {/* WhatsApp/Telegram */}
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">WhatsApp / Telegram</div>
-                    <a 
-                      href={`https://wa.me/${personalInfo.whatsapp.replace(/[^0-9]/g, '')}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-gray-700 hover:text-sage-600 transition-colors"
-                    >
-                      {personalInfo.whatsapp}
-                    </a>
-                  </div>
-                </div>
-
-                {/* Location */}
-                <div className="flex items-start gap-4">
-                  <div className="w-6 h-6 flex items-center justify-center">
-                    <div className="w-2 h-2 bg-sage-400 rounded-full"></div>
-                  </div>
-                  <div>
-                    <div className="text-sm font-medium text-gray-900 uppercase tracking-wider mb-1">Location</div>
-                    <div className="text-gray-700">France</div>
-                  </div>
+              {/* Social Links */}
+              <div>
+                <h3 className="text-xl font-light text-gray-900 mb-6">Connect</h3>
+                <div className="flex gap-6">
+                  <a 
+                    href={`https://${personalInfo.github}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-stone-500 hover:text-gray-900 transition-colors font-light"
+                  >
+                    GitHub
+                  </a>
+                  <a 
+                    href={`https://${personalInfo.linkedin}`} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-stone-500 hover:text-gray-900 transition-colors font-light"
+                  >
+                    LinkedIn
+                  </a>
+                  <a 
+                    href={`mailto:${personalInfo.email}`}
+                    className="text-stone-500 hover:text-gray-900 transition-colors font-light"
+                  >
+                    Email
+                  </a>
                 </div>
               </div>
             </div>
 
-            {/* Social Links */}
-            <div>
-              <h3 className="text-xl font-light text-gray-900 mb-6">Connect</h3>
-              <div className="flex gap-6">
-                <a 
-                  href={`https://${personalInfo.github}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-stone-500 hover:text-gray-900 transition-colors font-light"
-                >
-                  GitHub
-                </a>
-                <a 
-                  href={`https://${personalInfo.linkedin}`} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="text-stone-500 hover:text-gray-900 transition-colors font-light"
-                >
-                  LinkedIn
-                </a>
-                <a 
-                  href={`mailto:${personalInfo.email}`}
-                  className="text-stone-500 hover:text-gray-900 transition-colors font-light"
-                >
-                  Email
-                </a>
-              </div>
-            </div>
-
-            {/* Response Time Note */}
-            <Card className="border-stone-200 bg-white/30">
+            {/* Response Time Note - positioned at bottom */}
+            <Card className="border-stone-200 bg-white/30 mt-8">
               <CardContent className="p-6">
                 <div className="space-y-2">
                   <h4 className="font-medium text-gray-900">Response Time</h4>
@@ -234,7 +236,7 @@ export function Contact() {
                     <Button
                       type="submit"
                       disabled={isSubmitting}
-                      className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 transition-all disabled:opacity-50"
+                      className="w-full bg-gray-900 hover:bg-gray-800 text-white py-3 cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {isSubmitting ? 'Sending...' : 'Send Message'}
                     </Button>

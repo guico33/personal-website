@@ -50,13 +50,13 @@ export function Projects() {
             Featured Projects
           </h2>
           <div className="w-16 h-px bg-sage-300 mt-4"></div>
-          <p className="text-lg text-gray-600 font-light mt-6 max-w-2xl">
+          <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl">
             A selection of impactful projects showcasing technical expertise and business outcomes across different domains.
           </p>
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
           {projects.map((project, index) => {
             const data = projectData[project.name as keyof typeof projectData]
             
@@ -76,7 +76,7 @@ export function Projects() {
                               className="h-6 w-auto opacity-70"
                             />
                           )}
-                          <h3 className="text-xl font-medium text-gray-900">{project.name}</h3>
+                          <h3 className="text-xl font-light text-gray-900">{project.name}</h3>
                         </div>
                         <div className="text-sm text-stone-500 mb-1">{data?.company}</div>
                         {data?.status && (
@@ -97,7 +97,7 @@ export function Projects() {
                     </div>
 
                     {/* Description */}
-                    <div className="text-gray-700 leading-relaxed">
+                    <div className="text-lg text-gray-700 leading-relaxed">
                       {project.description}
                     </div>
 
@@ -139,7 +139,7 @@ export function Projects() {
                           variant="outline" 
                           size="sm"
                           asChild
-                          className="border-stone-300 text-stone-700 hover:bg-stone-50 group-hover:border-sage-300 group-hover:text-sage-700 transition-all"
+                          className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 group-hover:border-sage-300 group-hover:text-sage-700 cursor-pointer transition-all duration-200"
                         >
                           <a href={project.link} target="_blank" rel="noopener noreferrer">
                             Visit Project →
@@ -150,7 +150,7 @@ export function Projects() {
                           variant="outline" 
                           size="sm"
                           disabled
-                          className="border-stone-200 text-stone-500 bg-stone-50"
+                          className="border-stone-200 text-stone-500 bg-stone-50 cursor-not-allowed transition-all duration-200"
                         >
                           Internal Project
                         </Button>

@@ -54,21 +54,36 @@ export function Hero() {
             </div>
             
             {/* CTA Buttons */}
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <Button 
                 size="lg" 
                 asChild
-                className="bg-gray-900 hover:bg-gray-800 text-white"
+                className="bg-gray-900 hover:bg-gray-800 text-white cursor-pointer transition-all duration-200"
               >
-                <a href="#work">View Work</a>
+                <a href="#projects">View Work</a>
               </Button>
               <Button 
                 variant="outline" 
                 size="lg" 
                 asChild
-                className="border-stone-300 text-stone-700 hover:bg-stone-50"
+                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200"
               >
                 <a href="#contact">Get In Touch</a>
+              </Button>
+              <Button 
+                variant="outline" 
+                size="lg" 
+                asChild
+                className="border-sage-300 text-sage-700 hover:bg-sage-50 hover:border-sage-400 cursor-pointer transition-all duration-200"
+              >
+                <a 
+                  href="/resume_Guillaume_Cauchet_SWE.pdf" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  download="Guillaume_Cauchet_Resume.pdf"
+                >
+                  Download Resume
+                </a>
               </Button>
             </div>
             
@@ -108,9 +123,9 @@ export function Hero() {
         {/* Simple bottom navigation */}
         <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
           <nav className="flex gap-8 text-sm text-stone-500">
-            <a href="#about" className="hover:text-gray-900 transition-colors">About</a>
-            <a href="#work" className="hover:text-gray-900 transition-colors">Work</a>
-            <a href="#contact" className="hover:text-gray-900 transition-colors">Contact</a>
+            <a href="#about" className="hover:text-gray-900 transition-colors cursor-pointer">About</a>
+            <a href="#projects" className="hover:text-gray-900 transition-colors cursor-pointer">Work</a>
+            <a href="#contact" className="hover:text-gray-900 transition-colors cursor-pointer">Contact</a>
           </nav>
         </div>
       </div>
