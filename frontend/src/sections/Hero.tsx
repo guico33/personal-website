@@ -133,10 +133,10 @@ export function Hero() {
         <div className="lg:absolute lg:bottom-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 mt-8 mb-8 lg:mt-0 lg:mb-0 flex justify-center">
           <nav className="flex gap-8 text-base text-stone-500">
             <a href="#about" className="hover:text-gray-900 transition-colors cursor-pointer">
-              About
+              Experience
             </a>
             <a href="#projects" className="hover:text-gray-900 transition-colors cursor-pointer">
-              Work
+              Projects
             </a>
             <a href="#contact" className="hover:text-gray-900 transition-colors cursor-pointer">
               Contact

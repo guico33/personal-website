@@ -44,7 +44,7 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-white">
+    <section id="contact" className="py-24 bg-yellow-50">
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Section Header */}
         <BlurFade delay={0.25} inView>
