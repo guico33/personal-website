@@ -107,7 +107,7 @@ export const projects = [
   {
     name: 'Inkstream',
     description:
-      'Currently building app.inkstream.cloud - a cloud-based Ai-powered document processing platform',
+      'Currently building app.inkstream.cloud - a cloud-based AI-powered document processing platform',
     status: 'In Development',
     technologies: ['TypeScript', 'React', 'Next.js', 'AWS'],
     link: 'https://app.inkstream.cloud',
