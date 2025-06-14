@@ -1,10 +1,71 @@
 import { SESClient, SendEmailCommand } from '@aws-sdk/client-ses';
 import { APIGatewayProxyEvent, APIGatewayProxyResult } from 'aws-lambda';
+import { z } from 'zod';
 
-interface ContactFormData {
-  name: string;
-  email: string;
-  message: string;
+// Zod schema for enhanced validation and sanitization
+const contactFormSchema = z.object({
+  name: z
+    .string()
+    .min(2, 'Name must be at least 2 characters')
+    .max(100, 'Name must not exceed 100 characters')
+    .transform((str) => str.trim()), // Remove whitespace, no regex restriction
+  email: z
+    .string()
+    .email('Invalid email format')
+    .max(254, 'Email must not exceed 254 characters')
+    .transform((str) => str.toLowerCase().trim()), // Normalize email
+  message: z
+    .string()
+    .min(10, 'Message must be at least 10 characters')
+    .max(5000, 'Message must not exceed 5000 characters')
+    .transform((str) => sanitizeMessage(str.trim())), // Sanitize message content
+});
+
+type ContactFormData = z.infer<typeof contactFormSchema>;
+
+// Enhanced message sanitization function
+function sanitizeMessage(message: string): string {
+  // Remove HTML tags
+  const htmlTagsRemoved = message.replace(/<[^>]*>/g, '');
+
+  // Remove script-like content
+  const scriptRemoved = htmlTagsRemoved.replace(
+    /<script\b[^<]*(?:(?!<\/script>)<[^<]*)*<\/script>/gi,
+    '',
+  );
+
+  // Remove dangerous protocol handlers (but keep regular URLs)
+  const suspiciousRemoved = scriptRemoved
+    .replace(/javascript:/gi, '')
+    .replace(/data:/gi, '')
+    .replace(/vbscript:/gi, '')
+    .replace(/about:/gi, '')
+    .replace(/chrome:/gi, '');
+
+  // Normalize excessive whitespace
+  const normalizedWhitespace = suspiciousRemoved.replace(/\s+/g, ' ').trim();
+
+  return normalizedWhitespace;
+}
+
+// Spam detection patterns - focused on obvious spam content
+const SPAM_PATTERNS = [
+  /buy now/gi,
+  /click here for/gi,
+  /free money/gi,
+  /make \$\d+/gi,
+  /viagra/gi,
+  /cialis/gi,
+  /casino/gi,
+  /online pharmacy/gi,
+  /weight loss/gi,
+  /lottery winner/gi,
+  /prince of nigeria/gi,
+  /urgent business proposal/gi,
+];
+
+function detectSpam(message: string): boolean {
+  return SPAM_PATTERNS.some((pattern) => pattern.test(message));
 }
 
 const sesClient = new SESClient({ region: process.env.AWS_REGION || 'eu-west-3' });
@@ -39,40 +100,45 @@ export const handler = async (event: APIGatewayProxyEvent): Promise<APIGatewayPr
       };
     }
 
-    const body: ContactFormData = JSON.parse(event.body);
-    const { name, email, message } = body;
-
-    // Input validation
-    if (!name || !name.trim()) {
+    let rawBody;
+    try {
+      rawBody = JSON.parse(event.body);
+    } catch (parseError) {
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Name is required' }),
+        body: JSON.stringify({ error: 'Invalid JSON format' }),
       };
     }
 
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'Valid email is required' }),
-      };
+    // Validate and sanitize input using Zod
+    let validatedData: ContactFormData;
+    try {
+      validatedData = contactFormSchema.parse(rawBody);
+    } catch (zodError) {
+      if (zodError instanceof z.ZodError) {
+        const errorMessages = zodError.errors.map((err) => `${err.path.join('.')}: ${err.message}`);
+        return {
+          statusCode: 400,
+          headers,
+          body: JSON.stringify({
+            error: 'Validation failed',
+            details: errorMessages.join(', '),
+          }),
+        };
+      }
+      throw zodError;
     }
 
-    if (!message || !message.trim()) {
-      return {
-        statusCode: 400,
-        headers,
-        body: JSON.stringify({ error: 'Message is required' }),
-      };
-    }
+    const { name, email, message } = validatedData;
 
-    // Additional security: limit message length
-    if (message.length > 5000) {
+    // Spam detection
+    if (detectSpam(message) || detectSpam(name)) {
+      console.log('Spam detected in submission:', { name, email });
       return {
         statusCode: 400,
         headers,
-        body: JSON.stringify({ error: 'Message too long (max 5000 characters)' }),
+        body: JSON.stringify({ error: 'Message content is not allowed' }),
       };
     }
 
@@ -152,6 +218,30 @@ You can reply directly to this email to respond to ${name}.`,
     };
   } catch (error) {
     console.error('Error processing contact form:', error);
+
+    // Handle Zod validation errors specifically
+    if (error instanceof z.ZodError) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          error: 'Invalid input data',
+          success: false,
+        }),
+      };
+    }
+
+    // Handle JSON parsing errors
+    if (error instanceof SyntaxError) {
+      return {
+        statusCode: 400,
+        headers,
+        body: JSON.stringify({
+          error: 'Invalid request format',
+          success: false,
+        }),
+      };
+    }
 
     // Handle specific AWS SES errors
     if (error instanceof Error) {

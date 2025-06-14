@@ -4,7 +4,7 @@ import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 import { join } from 'path';
 import { NodejsFunction } from 'aws-cdk-lib/aws-lambda-nodejs';
-import { ContactFormApi } from './api-gateway-construct';
+import { ContactFormApi } from './contact-api';
 
 export interface InfraStackProps extends cdk.StackProps {
   senderEmail: string;
@@ -48,12 +48,17 @@ export class InfraStack extends cdk.Stack {
       description: 'Handles contact form submissions and sends emails via SES',
     });
 
-    // Grant SES permissions to the Lambda function
+    // Grant SES permissions to the Lambda function with restrictive policy
     contactFunction.addToRolePolicy(
       new iam.PolicyStatement({
         effect: iam.Effect.ALLOW,
         actions: ['ses:SendEmail', 'ses:SendRawEmail'],
-        resources: ['*'], // Can be more restrictive if needed
+        resources: [
+          // Restrict to specific SES identity instead of wildcard
+          `arn:aws:ses:${this.region}:${this.account}:identity/${senderEmail}`,
+          // Also allow access to the receiver email identity for verification
+          `arn:aws:ses:${this.region}:${this.account}:identity/${receiverEmail}`,
+        ],
         conditions: {
           StringEquals: {
             'ses:FromAddress': senderEmail,
@@ -66,13 +71,6 @@ export class InfraStack extends cdk.Stack {
     const contactFormApi = new ContactFormApi(this, 'ContactFormApi', {
       contactFunction,
     });
-
-    // ========================================
-    // ADDITIONAL SECURITY AND MONITORING
-    // ========================================
-
-    // Add rate limiting and monitoring (optional enhancements)
-    // Note: GitHub Pages will host the frontend, so no S3/CloudFront needed
 
     // ========================================
     // OUTPUTS

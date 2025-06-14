@@ -1,6 +1,7 @@
 import * as cdk from 'aws-cdk-lib';
 import * as apigateway from 'aws-cdk-lib/aws-apigateway';
 import * as lambda from 'aws-cdk-lib/aws-lambda';
+import * as iam from 'aws-cdk-lib/aws-iam';
 import { Construct } from 'constructs';
 
 export interface ContactFormApiProps {
@@ -35,19 +36,82 @@ export class ContactFormApi extends Construct {
       },
       deployOptions: {
         stageName: 'prod',
-        // Enable request/response logging
-        loggingLevel: apigateway.MethodLoggingLevel.INFO,
-        dataTraceEnabled: false, // Don't log sensitive data
+        dataTraceEnabled: false,
         metricsEnabled: true,
+      },
+      // Set maximum request payload size (10MB as API Gateway limit)
+      policy: new iam.PolicyDocument({
+        statements: [
+          new iam.PolicyStatement({
+            effect: iam.Effect.ALLOW,
+            principals: [new iam.AnyPrincipal()],
+            actions: ['execute-api:Invoke'],
+            resources: ['*'],
+          }),
+        ],
+      }),
+    });
+
+    // Create request validator for payload size and content-type validation
+    const requestValidator = this.api.addRequestValidator('ContactFormRequestValidator', {
+      requestValidatorName: 'Contact Form Request Validator',
+      validateRequestBody: true,
+      validateRequestParameters: true,
+    });
+
+    // Create request model for validation
+    const contactModel = this.api.addModel('ContactFormModel', {
+      modelName: 'ContactFormModel',
+      contentType: 'application/json',
+      schema: {
+        schema: apigateway.JsonSchemaVersion.DRAFT4,
+        type: apigateway.JsonSchemaType.OBJECT,
+        required: ['name', 'email', 'message'],
+        properties: {
+          name: {
+            type: apigateway.JsonSchemaType.STRING,
+            minLength: 2,
+            maxLength: 100,
+          },
+          email: {
+            type: apigateway.JsonSchemaType.STRING,
+            format: 'email',
+            maxLength: 254, // RFC 5321 email length limit
+          },
+          message: {
+            type: apigateway.JsonSchemaType.STRING,
+            minLength: 10,
+            maxLength: 5000,
+          },
+        },
+        additionalProperties: false, // Reject extra fields
       },
     });
 
     // Create /contact endpoint
     const contactResource = this.api.root.addResource('contact');
 
-    // Add POST method
+    // Add POST method with validation and rate limiting
     contactResource.addMethod('POST', new apigateway.LambdaIntegration(props.contactFunction), {
       methodResponses: [{ statusCode: '200' }, { statusCode: '400' }, { statusCode: '500' }],
+      requestValidator,
+      requestModels: {
+        'application/json': contactModel,
+      },
+    });
+
+    // Configure throttling at the API level
+    this.api.addUsagePlan('ContactFormUsagePlan', {
+      name: 'Contact Form Usage Plan',
+      description: 'Rate limiting for contact form submissions',
+      throttle: {
+        rateLimit: 10, // requests per second
+        burstLimit: 20, // burst capacity
+      },
+      quota: {
+        limit: 1000, // requests per period
+        period: apigateway.Period.DAY,
+      },
     });
 
     // Store the API URL for easy access
