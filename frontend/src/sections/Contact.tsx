@@ -30,17 +30,32 @@ export function Contact() {
   });
 
   const onSubmit = async (data: ContactFormData) => {
-    // Simulate form submission delay
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const response = await fetch(import.meta.env.VITE_CONTACT_ENDPOINT || 'https://pb59ivxrui.execute-api.eu-west-3.amazonaws.com/prod/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
 
-    console.log('Form data:', data);
-    setIsSubmitted(true);
-    reset();
+      const result = await response.json();
 
-    // Show form again after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-    }, 3000);
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setIsSubmitted(true);
+      reset();
+
+      // Show form again after 5 seconds
+      setTimeout(() => {
+        setIsSubmitted(false);
+      }, 5000);
+    } catch (error) {
+      console.error('Error sending message:', error);
+      // You could add error state here if needed
+    }
   };
 
   return (
