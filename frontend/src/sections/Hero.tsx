@@ -1,7 +1,12 @@
 import { Button } from '../components/ui/button';
 import { BlurFade } from '../components/magicui/blur-fade';
 import { heroSkills, personalInfo } from '../data/portfolio';
-import profilePic from '../assets/profile-pic.jpg';
+import profilePicMobileWebP from '../assets/profile-pic-mobile.webp';
+import profilePicMobileJpg from '../assets/profile-pic-mobile.jpg';
+import profilePicTabletWebP from '../assets/profile-pic-tablet.webp';
+import profilePicTabletJpg from '../assets/profile-pic-tablet.jpg';
+import profilePicDesktopWebP from '../assets/profile-pic-desktop.webp';
+import profilePicDesktopJpg from '../assets/profile-pic-desktop.jpg';
 
 export function Hero() {
   return (
@@ -17,7 +22,7 @@ export function Hero() {
             </div>
 
             {/* Name */}
-            <BlurFade delay={0.25} inView>
+            <BlurFade delay={0.05} inView>
               <div>
                 <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
                   {personalInfo.name}
@@ -117,11 +122,42 @@ export function Hero() {
           <div className="flex justify-center lg:justify-end">
             <div className="relative">
               <div className="w-80 h-96 bg-stone-100 rounded-sm">
-                <img
-                  src={profilePic}
-                  alt={`${personalInfo.name} - Professional portrait`}
-                  className="w-full h-full object-cover rounded-sm"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 640px)"
+                    srcSet={`${profilePicMobileWebP} 1x`}
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 640px)"
+                    srcSet={`${profilePicMobileJpg} 1x`}
+                    type="image/jpeg"
+                  />
+                  <source
+                    media="(max-width: 1024px)"
+                    srcSet={`${profilePicTabletWebP} 1x`}
+                    type="image/webp"
+                  />
+                  <source
+                    media="(max-width: 1024px)"
+                    srcSet={`${profilePicTabletJpg} 1x`}
+                    type="image/jpeg"
+                  />
+                  <source
+                    srcSet={`${profilePicDesktopWebP} 1x`}
+                    type="image/webp"
+                  />
+                  <img
+                    src={profilePicDesktopJpg}
+                    alt={`${personalInfo.name} - Professional portrait`}
+                    className="w-full h-full object-cover rounded-sm"
+                    loading="eager"
+                    fetchPriority="high"
+                    decoding="async"
+                    width="320"
+                    height="384"
+                  />
+                </picture>
               </div>
               {/* Simple accent */}
               <div className="absolute -bottom-2 -right-2 w-4 h-4 bg-sage-300 rounded-full"></div>

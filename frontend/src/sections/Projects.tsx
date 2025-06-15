@@ -15,7 +15,7 @@ export function Projects() {
     <section id="projects" className="py-24 bg-orange-50">
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Section Header */}
-        <BlurFade delay={0.25} inView>
+        <BlurFade delay={0.05} inView>
           <div className="mb-16">
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
               Featured Projects

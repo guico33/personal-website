@@ -81,7 +81,7 @@ export function Contact() {
     <section id="contact" className="py-24 bg-yellow-50">
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Section Header */}
-        <BlurFade delay={0.25} inView>
+        <BlurFade delay={0.05} inView>
           <div className="mb-16 text-center">
             <h2 className="text-4xl lg:text-5xl font-light text-gray-900 leading-tight">
               Get In Touch
@@ -200,18 +200,6 @@ export function Contact() {
               </div>
             </div>
 
-            {/* Response Time Note - positioned at bottom */}
-            <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30 mt-8">
-              <CardContent className="p-6">
-                <div className="space-y-2">
-                  <h4 className="font-medium text-gray-900">Response Time</h4>
-                  <p className="text-stone-600 text-sm leading-relaxed">
-                    I typically respond to inquiries within 24 hours. For urgent matters, feel free
-                    to reach out via WhatsApp/Telegram.
-                  </p>
-                </div>
-              </CardContent>
-            </Card>
           </div>
 
           {/* Right Column - Contact Form */}
