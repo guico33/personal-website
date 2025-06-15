@@ -1,6 +1,8 @@
 import { Button } from '../components/ui/button';
 import { BlurFade } from '../components/magicui/blur-fade';
 import { Dialog, DialogContent, DialogTrigger } from '../components/ui/dialog';
+import { Navigation } from '../components/Navigation';
+import { useNavigationContext } from '../contexts/NavigationContext';
 import { heroSkills, personalInfo } from '../data/portfolio';
 import profilePicMobileWebP from '../assets/profile-pic-mobile.webp';
 import profilePicMobileJpg from '../assets/profile-pic-mobile.jpg';
@@ -11,6 +13,8 @@ import profilePicDesktopJpg from '../assets/profile-pic-desktop.jpg';
 import awsCertificationBadge from '../assets/aws-certified-solutions-architect-associate.png';
 
 export function Hero() {
+  const { heroNavRef } = useNavigationContext();
+  
   return (
     <section className="min-h-screen lg:pt-8 pt-16 bg-gradient-to-br from-white to-amber-50 flex items-center">
       <div className="w-full max-w-6xl mx-auto px-8">
@@ -209,18 +213,11 @@ export function Hero() {
         </div>
 
         {/* Simple bottom navigation - responsive positioning */}
-        <div className="lg:absolute lg:bottom-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 mt-8 mb-8 lg:mt-0 lg:mb-0 flex justify-center">
-          <nav className="flex gap-8 text-base text-stone-500">
-            <a href="#about" className="hover:text-gray-900 transition-colors cursor-pointer">
-              Experience
-            </a>
-            <a href="#projects" className="hover:text-gray-900 transition-colors cursor-pointer">
-              Projects
-            </a>
-            <a href="#contact" className="hover:text-gray-900 transition-colors cursor-pointer">
-              Contact
-            </a>
-          </nav>
+        <div 
+          ref={heroNavRef}
+          className="lg:absolute lg:bottom-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 mt-8 mb-8 lg:mt-0 lg:mb-0 flex justify-center"
+        >
+          <Navigation />
         </div>
       </div>
     </section>
