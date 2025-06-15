@@ -12,7 +12,7 @@ export function Projects() {
   };
 
   return (
-    <section id="projects" className="py-24 bg-orange-50">
+    <section id="projects" className="py-24 bg-orange-50/40">
       <div className="w-full max-w-6xl mx-auto px-8">
         {/* Section Header */}
         <BlurFade delay={0.05} inView>

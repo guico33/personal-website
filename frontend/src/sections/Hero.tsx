@@ -14,7 +14,7 @@ import awsCertificationBadge from '../assets/aws-certified-solutions-architect-a
 
 export function Hero() {
   const { heroNavRef } = useNavigationContext();
-  
+
   return (
     <section className="min-h-screen lg:pt-8 pt-16 bg-gradient-to-br from-white to-amber-50 flex items-center">
       <div className="w-full max-w-6xl mx-auto px-8">
@@ -68,9 +68,9 @@ export function Hero() {
                   <DialogTrigger asChild>
                     <div className="flex items-center gap-3 px-4 py-2 bg-white border border-stone-200 rounded-lg shadow-sm cursor-pointer hover:bg-stone-50 hover:border-stone-300 transition-all duration-200">
                       <div className="relative overflow-visible">
-                        <img 
-                          src={awsCertificationBadge} 
-                          alt="AWS Certified Solutions Architect Associate badge" 
+                        <img
+                          src={awsCertificationBadge}
+                          alt="AWS Certified Solutions Architect Associate badge"
                           className="w-11 h-11 object-contain"
                         />
                       </div>
@@ -82,9 +82,9 @@ export function Hero() {
                   </DialogTrigger>
                   <DialogContent className="max-w-md p-6 bg-white">
                     <div className="flex flex-col items-center space-y-4 pt-4">
-                      <img 
-                        src={awsCertificationBadge} 
-                        alt="AWS Certified Solutions Architect Associate badge" 
+                      <img
+                        src={awsCertificationBadge}
+                        alt="AWS Certified Solutions Architect Associate badge"
                         className="w-48 h-48 object-contain"
                       />
                       <div className="text-center">
@@ -190,14 +190,11 @@ export function Hero() {
                     srcSet={`${profilePicTabletJpg} 1x`}
                     type="image/jpeg"
                   />
-                  <source
-                    srcSet={`${profilePicDesktopWebP} 1x`}
-                    type="image/webp"
-                  />
+                  <source srcSet={`${profilePicDesktopWebP} 1x`} type="image/webp" />
                   <img
                     src={profilePicDesktopJpg}
                     alt={`${personalInfo.name} - Professional portrait`}
-                    className="w-full h-full object-cover rounded-sm"
+                    className="w-full h-full object-cover rounded-sm saturate-85"
                     loading="eager"
                     fetchPriority="high"
                     decoding="async"
@@ -213,7 +210,7 @@ export function Hero() {
         </div>
 
         {/* Simple bottom navigation - responsive positioning */}
-        <div 
+        <div
           ref={heroNavRef}
           className="lg:absolute lg:bottom-8 lg:left-1/2 lg:transform lg:-translate-x-1/2 mt-8 mb-8 lg:mt-0 lg:mb-0 flex justify-center"
         >
