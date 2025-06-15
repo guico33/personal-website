@@ -75,7 +75,7 @@ export const experience = [
         name: 'Renew UltraLink',
         period: 'Nov 2022 – Dec 2022',
         description:
-          'Led frontend development for a web application used in operating theatres to distinguish cancerous tissues from video feeds.',
+          'Led frontend development for a web application used in operating theatres to highlight cancerous tissues on video feeds.',
         achievements: [
           'Transformed the project from a prototype into a production-ready solution by integrating live streaming via websockets and interactive data visualizations using SVG',
           'Delivered a project using a modern stack (Typescript, React, and Next.js) tailored for high-stakes clinical environments, and implemented a comprehensive suite of unit tests to ensure robust, maintainable code',
@@ -126,7 +126,7 @@ export const projects = [
   {
     name: 'Renew UltraLink',
     description:
-      'Web application for operating theatres to distinguish healthy tissues from video feeds',
+      'Web application for operating theatres to highlight cancerous tissues on video feeds.',
     technologies: ['TypeScript', 'React', 'Next.js', 'WebSockets', 'SVG'],
     achievements: [
       'Live streaming integration',
