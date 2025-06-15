@@ -9,7 +9,7 @@
     "watch": "tsc -w",
     "cdk": "cdk",
     "bootstrap:prod": "npx cdk bootstrap --profile prod",
-    "deploy:prod": "npx cdk deploy --profile prod",
+    "deploy:prod": "npx cdk deploy --all --profile prod",
     "diff:prod": "npx cdk diff --profile prod",
     "destroy:prod": "npx cdk destroy --profile prod"
   },
