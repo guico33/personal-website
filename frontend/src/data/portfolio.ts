@@ -110,7 +110,7 @@ export const projects = [
       'Currently building app.inkstream.cloud - a cloud-based AI-powered document processing platform',
     status: 'In Development',
     technologies: ['TypeScript', 'React', 'Next.js', 'AWS'],
-    link: 'https://app.inkstream.cloud',
+    link: 'https://github.com/guico33/inkstream',
   },
   {
     name: 'SGInnovate',
