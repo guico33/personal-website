@@ -1,5 +1,4 @@
 import { Button } from '../components/ui/button';
-import { BlurFade } from '../components/magicui/blur-fade';
 import { Dialog, DialogContent, DialogTrigger } from '../components/ui/dialog';
 import { Navigation } from '../components/Navigation';
 import { useNavigationContext } from '../contexts/NavigationContext';
@@ -27,14 +26,12 @@ export function Hero() {
             </div>
 
             {/* Name */}
-            <BlurFade delay={0.05} inView>
-              <div>
-                <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
-                  {personalInfo.name}
-                </h1>
-                <div className="w-16 h-px bg-sage-300 mt-4"></div>
-              </div>
-            </BlurFade>
+            <div>
+              <h1 className="text-5xl lg:text-6xl font-light text-gray-900 leading-tight">
+                {personalInfo.name}
+              </h1>
+              <div className="w-16 h-px bg-sage-300 mt-4"></div>
+            </div>
 
             {/* Title & Experience */}
             <div>
@@ -109,7 +106,9 @@ export function Hero() {
                 asChild
                 className="bg-gray-900 hover:bg-gray-700 text-white cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
               >
-                <a href="#projects" aria-label="Navigate to projects section">View Work</a>
+                <a href="#projects" aria-label="Navigate to projects section">
+                  View Work
+                </a>
               </Button>
               <Button
                 variant="outline"
@@ -117,7 +116,9 @@ export function Hero() {
                 asChild
                 className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
               >
-                <a href="#contact" aria-label="Navigate to contact section">Get In Touch</a>
+                <a href="#contact" aria-label="Navigate to contact section">
+                  Get In Touch
+                </a>
               </Button>
               <Button
                 variant="outline"
