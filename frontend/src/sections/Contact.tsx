@@ -78,8 +78,8 @@ export function Contact() {
   };
 
   return (
-    <section id="contact" className="py-24 bg-yellow-50/50">
-      <div className="w-full max-w-6xl mx-auto px-8">
+    <section id="contact" className="py-12 sm:py-24 bg-yellow-50/50">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <BlurFade delay={0.05} inView>
           <div className="mb-16 text-center">

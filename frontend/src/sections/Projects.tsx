@@ -8,12 +8,12 @@ import type { ProjectData } from '../types/portfolio';
 export function Projects() {
   // Helper function to find project data by name
   const getProjectData = (projectName: string): ProjectData | undefined => {
-    return projectsData.find(data => data.name === projectName);
+    return projectsData.find((data) => data.name === projectName);
   };
 
   return (
-    <section id="projects" className="py-24 bg-orange-50/40">
-      <div className="w-full max-w-6xl mx-auto px-8">
+    <section id="projects" className="py-12 sm:py-24 bg-orange-50/40">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <BlurFade delay={0.05} inView>
           <div className="mb-16">
@@ -123,7 +123,7 @@ export function Projects() {
                           className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 group-hover:border-sage-300 group-hover:text-sage-700 cursor-pointer transition-all duration-200"
                         >
                           <a href={project.link} target="_blank" rel="noopener noreferrer">
-                            Visit Project →
+                            View Project on GitHub →
                           </a>
                         </Button>
                       ) : (

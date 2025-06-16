@@ -9,8 +9,8 @@ export function About() {
     'Fullstack software engineer with 6 years of experience building impactful digital solutions. I specialize in creating scalable frontend architectures and high-performance web applications, with a passion for delivering technology that enhances user experience and drives business value.';
 
   return (
-    <section id="about" className="py-24 bg-amber-50/60">
-      <div className="w-full max-w-6xl mx-auto px-8">
+    <section id="about" className="py-12 sm:py-24 bg-amber-50/60">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8">
         {/* Section Header */}
         <BlurFade delay={0.05} inView>
           <div className="mb-16">

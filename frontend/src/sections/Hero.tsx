@@ -17,7 +17,7 @@ export function Hero() {
 
   return (
     <section className="min-h-screen lg:pt-8 pt-16 bg-gradient-to-br from-white to-amber-50 flex items-center">
-      <div className="w-full max-w-6xl mx-auto px-8">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-16 lg:mb-0">
           {/* Content */}
           <div className="space-y-8">

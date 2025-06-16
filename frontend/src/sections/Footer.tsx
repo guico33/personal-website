@@ -4,8 +4,8 @@ export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="py-16 bg-orange-50/40">
-      <div className="w-full max-w-6xl mx-auto px-8">
+    <footer className="py-8 sm:py-16 bg-orange-50/40">
+      <div className="w-full max-w-6xl mx-auto px-4 sm:px-8">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
           {/* Brand Section */}
