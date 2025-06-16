@@ -22,8 +22,7 @@ export function Hero() {
           {/* Content */}
           <div className="space-y-8">
             {/* Location */}
-            <div className="flex items-center gap-3 text-sage-400 text-sm tracking-wider">
-              <div className="w-8 h-px bg-sage-300"></div>
+            <div className="text-sage-400 text-sm tracking-wider">
               <span>{personalInfo.location}</span>
             </div>
 

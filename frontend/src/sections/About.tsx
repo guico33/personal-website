@@ -67,17 +67,13 @@ export function About() {
             <h3 className="text-xl font-light text-gray-900 mb-6">Experience</h3>
 
             <div className="relative">
-              {/* Timeline line - hidden on mobile */}
-              <div className="hidden lg:block absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-sage-300 via-stone-200 to-stone-100"></div>
 
               <div className="space-y-8 lg:space-y-12">
                 {experience.map((exp, index) => (
                   <div key={index} className="relative">
-                    {/* Timeline dot - hidden on mobile */}
-                    <div className="hidden lg:block absolute left-4 w-4 h-4 bg-gradient-to-br from-sage-400 to-sage-500 rounded-full border-4 border-white shadow-sm"></div>
 
                     {/* Content */}
-                    <div className="ml-0 lg:ml-12">
+                    <div>
                       <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30 hover:from-white/60 hover:to-blue-50/40 transition-all duration-300">
                         <CardContent className="p-4 lg:p-6">
                           <div className="space-y-4 lg:space-y-6">
