@@ -45,8 +45,7 @@ export function Hero() {
             {/* Bio */}
             <div className="space-y-6">
               <div className="text-lg text-gray-700 leading-relaxed font-light max-w-lg">
-                Specializing in scalable frontend architectures and high-performance applications
-                that deliver measurable business impact.
+                Focused on scalable frontend architectures and high-performance web applications.
               </div>
 
               {/* Tech stack */}

@@ -6,7 +6,7 @@ import { experience, education, languages } from '../data/portfolio';
 export function About() {
   // Enhanced bio with slight adjustments for portfolio context
   const portfolioBio =
-    'Fullstack software engineer with 6 years of experience building impactful digital solutions. I specialize in creating scalable frontend architectures and high-performance web applications, with a passion for delivering technology that enhances user experience and drives business value.';
+    'Fullstack software engineer with 6 years of experience building impactful digital solutions. I specialize in creating scalable frontend architectures and high-performance web applications, focused on building reliable, scalable solutions.';
 
   return (
     <section id="about" className="py-12 sm:py-24 bg-amber-50/60">

@@ -22,8 +22,7 @@ export function Projects() {
             </h2>
             <div className="w-16 h-px bg-sage-300 mt-4"></div>
             <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl">
-              A selection of impactful projects showcasing technical expertise and business outcomes
-              across different domains.
+              Selected projects demonstrating technical capabilities across different domains.
             </p>
           </div>
         </BlurFade>
@@ -79,7 +78,7 @@ export function Projects() {
                     {project.achievements && (
                       <div className="space-y-2">
                         <h4 className="text-sm font-medium text-gray-900 uppercase tracking-wider">
-                          Key Outcomes
+                          Highlights
                         </h4>
                         <ul className="space-y-2">
                           {project.achievements.map((achievement, aIndex) => (

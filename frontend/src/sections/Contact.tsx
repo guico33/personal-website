@@ -88,8 +88,7 @@ export function Contact() {
             </h2>
             <div className="w-16 h-px bg-sage-300 mt-4 mx-auto"></div>
             <p className="text-lg text-gray-700 font-light mt-6 max-w-2xl mx-auto">
-              Ready to bring your ideas to life? Let's discuss how we can work together to create
-              something exceptional.
+              Interested in working together? Let's discuss your project requirements.
             </p>
           </div>
         </BlurFade>
