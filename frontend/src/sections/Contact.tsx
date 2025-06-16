@@ -217,7 +217,7 @@ export function Contact() {
                     <CardContent className="p-8">
                       <h3 className="text-xl font-light text-gray-900 mb-6">Send a Message</h3>
 
-                      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+                      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6" role="form" aria-label="Contact form">
                         {/* Name Field */}
                         <div>
                           <label
@@ -232,13 +232,16 @@ export function Contact() {
                             id="name"
                             className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-300 transition-all"
                             placeholder="Your full name"
+                            aria-required="true"
+                            aria-invalid={errors.name ? 'true' : 'false'}
+                            aria-describedby={errors.name ? 'name-error' : undefined}
                             onChange={(e) => {
                               register('name').onChange(e);
                               if (submitError) setSubmitError(null);
                             }}
                           />
                           {errors.name && (
-                            <p className="mt-2 text-sm text-red-600">{errors.name.message}</p>
+                            <p id="name-error" className="mt-2 text-sm text-red-600" role="alert">{errors.name.message}</p>
                           )}
                         </div>
 
@@ -256,13 +259,16 @@ export function Contact() {
                             id="email"
                             className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-400/50 focus:border-sage-300 transition-all"
                             placeholder="your.email@example.com"
+                            aria-required="true"
+                            aria-invalid={errors.email ? 'true' : 'false'}
+                            aria-describedby={errors.email ? 'email-error' : undefined}
                             onChange={(e) => {
                               register('email').onChange(e);
                               if (submitError) setSubmitError(null);
                             }}
                           />
                           {errors.email && (
-                            <p className="mt-2 text-sm text-red-600">{errors.email.message}</p>
+                            <p id="email-error" className="mt-2 text-sm text-red-600" role="alert">{errors.email.message}</p>
                           )}
                         </div>
 
@@ -280,13 +286,16 @@ export function Contact() {
                             rows={5}
                             className="w-full px-4 py-3 border border-stone-200 rounded-lg bg-white/60 text-gray-900 placeholder-stone-400 focus:outline-none focus:ring-2 focus:ring-sage-300 focus:border-transparent transition-all resize-vertical"
                             placeholder="Tell me about your project, ideas, or how we can work together..."
+                            aria-required="true"
+                            aria-invalid={errors.message ? 'true' : 'false'}
+                            aria-describedby={errors.message ? 'message-error' : undefined}
                             onChange={(e) => {
                               register('message').onChange(e);
                               if (submitError) setSubmitError(null);
                             }}
                           />
                           {errors.message && (
-                            <p className="mt-2 text-sm text-red-600">{errors.message.message}</p>
+                            <p id="message-error" className="mt-2 text-sm text-red-600" role="alert">{errors.message.message}</p>
                           )}
                         </div>
 
@@ -294,10 +303,16 @@ export function Contact() {
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="w-full bg-gray-900 hover:bg-gray-700 text-white py-3 cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+                          className="w-full bg-gray-900 hover:bg-gray-700 text-white py-3 cursor-pointer transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed focus:outline-none focus:ring-2 focus:ring-sage-400"
+                          aria-describedby="submit-status"
                         >
                           {isSubmitting ? 'Sending...' : 'Send Message'}
                         </Button>
+                        
+                        {/* Screen reader status */}
+                        <div id="submit-status" className="sr-only" aria-live="polite">
+                          {isSubmitting ? 'Sending your message...' : ''}
+                        </div>
 
                         {/* Error Message */}
                         <AnimatePresence>

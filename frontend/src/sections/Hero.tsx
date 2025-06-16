@@ -108,29 +108,30 @@ export function Hero() {
               <Button
                 size="lg"
                 asChild
-                className="bg-gray-900 hover:bg-gray-700 text-white cursor-pointer transition-all duration-200"
+                className="bg-gray-900 hover:bg-gray-700 text-white cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
               >
-                <a href="#projects">View Work</a>
+                <a href="#projects" aria-label="Navigate to projects section">View Work</a>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200"
+                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
               >
-                <a href="#contact">Get In Touch</a>
+                <a href="#contact" aria-label="Navigate to contact section">Get In Touch</a>
               </Button>
               <Button
                 variant="outline"
                 size="lg"
                 asChild
-                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200"
+                className="border-stone-300 text-stone-700 hover:bg-stone-50 hover:border-stone-400 cursor-pointer transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sage-400"
               >
                 <a
                   href="/resume_Guillaume_Cauchet_SWE.pdf"
                   target="_blank"
                   rel="noopener noreferrer"
                   download="Guillaume_Cauchet_Resume.pdf"
+                  aria-label="Download Guillaume's resume (PDF, opens in new tab)"
                 >
                   Download Resume
                 </a>
@@ -138,12 +139,13 @@ export function Hero() {
             </div>
 
             {/* Social Links */}
-            <div className="flex gap-8 text-sm">
+            <div className="flex gap-8 text-sm" role="navigation" aria-label="Social media links">
               <a
                 href={`https://${personalInfo.github}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-500 hover:text-gray-900 transition-colors"
+                className="text-stone-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-400 focus:rounded-sm"
+                aria-label="Visit Guillaume's GitHub profile (opens in new tab)"
               >
                 GitHub
               </a>
@@ -151,13 +153,15 @@ export function Hero() {
                 href={`https://${personalInfo.linkedin}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-stone-500 hover:text-gray-900 transition-colors"
+                className="text-stone-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-400 focus:rounded-sm"
+                aria-label="Visit Guillaume's LinkedIn profile (opens in new tab)"
               >
                 LinkedIn
               </a>
               <a
                 href={`mailto:${personalInfo.email}`}
-                className="text-stone-500 hover:text-gray-900 transition-colors"
+                className="text-stone-500 hover:text-gray-900 transition-colors focus:outline-none focus:ring-2 focus:ring-sage-400 focus:rounded-sm"
+                aria-label="Send email to Guillaume"
               >
                 Email
               </a>
