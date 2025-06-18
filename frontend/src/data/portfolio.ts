@@ -40,7 +40,7 @@ export const languages = [
     name: 'French',
     level: 'Fluent',
   },
-  { name: 'Japanese', level: 'Conversational' },
+  { name: 'Japanese', level: 'Conversational (JLPT N2)' },
 ];
 
 export const interests = [

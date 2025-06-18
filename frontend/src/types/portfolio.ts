@@ -65,7 +65,7 @@ export interface Skills {
 
 export interface Language {
   name: string;
-  level: 'Fluent' | 'Conversational' | 'Basic';
+  level: string;
 }
 
 // Array of project display data
