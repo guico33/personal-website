@@ -72,7 +72,7 @@ export const experience = [
         ],
       },
       {
-        name: 'Renew UltraLink',
+        name: 'Renew UltraLinQ',
         period: 'Nov 2022 – Dec 2022',
         description:
           'Led frontend development for a web application used in operating theatres to highlight cancerous tissues on video feeds.',
@@ -124,7 +124,7 @@ export const projects = [
     ],
   },
   {
-    name: 'Renew UltraLink',
+    name: 'Renew UltraLinQ',
     description:
       'Web application for operating theatres to highlight cancerous tissues on video feeds.',
     technologies: ['TypeScript', 'React', 'Next.js', 'WebSockets', 'SVG'],
@@ -162,7 +162,7 @@ export const projectsData = [
     color: 'accent' as const,
   },
   {
-    name: 'Renew UltraLink',
+    name: 'Renew UltraLinQ',
     logo: renewLogo,
     status: 'Completed' as const,
     color: 'secondary' as const,

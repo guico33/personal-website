@@ -67,11 +67,9 @@ export function About() {
             <h3 className="text-xl font-light text-gray-900 mb-6">Experience</h3>
 
             <div className="relative">
-
               <div className="space-y-8 lg:space-y-12">
                 {experience.map((exp, index) => (
                   <div key={index} className="relative">
-
                     {/* Content */}
                     <div>
                       <Card className="border-stone-200 bg-gradient-to-br from-white/40 to-blue-50/30 hover:from-white/60 hover:to-blue-50/40 transition-all duration-300">
@@ -157,7 +155,7 @@ export function About() {
                                             </Badge>
                                           </>
                                         )}
-                                        {pIndex === 1 && ( // Renew UltraLink project
+                                        {pIndex === 1 && ( // Renew UltraLinQ project
                                           <>
                                             <Badge
                                               variant="outline"
